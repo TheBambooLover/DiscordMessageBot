@@ -6,9 +6,6 @@ import numpy as np
 import pyautogui
 import time
 
-# Wait for 5 seconds before starting to click (optional, adjust as needed)
-time.sleep(1)
-
 def send_message():
     pyautogui.click(x=168, y=298)
     pyautogui.click(x=518, y=1038)
@@ -27,7 +24,7 @@ def send_message():
     go_to_thread()
     while time.time()-start_time < this_time:
         click_by_color()
-        time.sleep(1)
+        time.sleep(2)
 
 def click_by_color():
     target_color = "#248046"  # Example color in IR format
@@ -54,18 +51,28 @@ def click_by_color():
 def go_to_thread():
     pyautogui.click(x=187, y=403)
 
+def get_cursor_coords():
+
+    input("Move your mouse over the Discord text box and press Enter.")
+
+    # Get the current mouse coordinates
+    x, y = pyautogui.position()
+
+    print(f"Coordinates (x, y): {x}, {y}")
+
 def main():
     while True:
         send_message()
 
 
 if __name__ == "__main__":
-    main()
+    opt = 1
+    while opt != 0:
+        opt = int(input("Select option: \n1) Run the program\n2) Get mouse coords\n0) To exit\n"))
+        if opt == 1:
+            main()
+        elif opt == 2:
+            get_cursor_coords()
+        else:
+            print("Please, select a correct option")
 
-
-# input("Move your mouse over the Discord text box and press Enter.")
-
-# Get the current mouse coordinates
-# x, y = pyautogui.position()
-
-# print(f"Coordinates (x, y): {x}, {y}")
