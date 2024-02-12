@@ -19,7 +19,7 @@ def send_message():
     now = datetime.now()
     print("Message sent at " + now.strftime("%H:%M"))
     start_time = time.time()
-    this_time = random.randint(370,600)
+    this_time = random.randint(310,311)
     print(this_time)
     go_to_thread()
     while time.time()-start_time < this_time:
@@ -73,6 +73,8 @@ if __name__ == "__main__":
             main()
         elif opt == 2:
             get_cursor_coords()
+        elif opt == 0:
+            break
         else:
             print("Please, select a correct option")
 
