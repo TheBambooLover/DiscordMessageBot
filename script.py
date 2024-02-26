@@ -6,8 +6,10 @@ import numpy as np
 import pyautogui
 import time
 
+pyautogui.FAILSAFE = False
+
 def send_message():
-    pyautogui.click(x=168, y=298)
+    pyautogui.click(x=183, y=574)
     pyautogui.click(x=518, y=1038)
     message = "/earn"
 
@@ -49,7 +51,7 @@ def click_by_color():
         print(f"Clicked on pixel ({511}, {957}) with color {pixel_color_str_2}")
 
 def go_to_thread():
-    pyautogui.click(x=187, y=403)
+    pyautogui.click(x=167, y=609)
 
 def get_cursor_coords():
 
@@ -60,9 +62,17 @@ def get_cursor_coords():
 
     print(f"Coordinates (x, y): {x}, {y}")
 
+def anti_sleep():
+    
+    pyautogui.click(688,1033)
+    pyautogui.click(497,1039)
+
 def main():
     while True:
-        send_message()
+        # send_message()
+        click_by_color()
+        anti_sleep()
+        time.sleep(2)
 
 
 if __name__ == "__main__":
